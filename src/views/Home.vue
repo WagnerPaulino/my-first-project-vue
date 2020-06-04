@@ -25,6 +25,11 @@ export default class Home extends Vue {
 
   private todo: Todo = new Todo();
 
+  constructor() {
+    super();
+    store.dispatch("findTodos");
+  }
+
   save(todo: Todo): void {
     store.dispatch("saveTodo", todo);
     this.todo = new Todo();

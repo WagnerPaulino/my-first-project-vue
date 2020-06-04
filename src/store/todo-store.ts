@@ -1,9 +1,8 @@
 import Todo from '@/domains/todo';
-import { Module, ActionTree } from 'vuex';
+import { ActionTree, StoreOptions } from 'vuex';
 
 
-const state: Array<Todo> = [{ name: "almoçar", detail: "comida" },
-{ name: "jantar", detail: "lanche" }];
+const state: Array<Todo> = [];
 
 const getters = {
   findTodos: (): Array<Todo> => {
@@ -15,17 +14,30 @@ const mutations = {
   saveTodo: (state: Array<Todo>, payload: Todo): Todo => {
     state.push(payload)
     return payload
+  },
+  findTodos: (state: Array<Todo>, payload: Array<Todo>): void => {
+    state.splice(0, state.length)
+    state.push(...payload);
   }
 };
 
-const actions: ActionTree<Array<Todo>, Todo> = {
+const actions: ActionTree<Array<Todo>, Array<Todo>> = {
   saveTodo: ({ commit }, payload: Todo) => {
     commit('saveTodo', payload)
     return payload
+  },
+  findTodos: ({ commit }) => {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        commit("findTodos", [{ name: "almoçar", detail: "comida" },
+        { name: "jantar", detail: "lanche" }]);
+        resolve();
+      }, 2000);
+    });
   }
 }
 
-const TodoStore: Module<Array<Todo>, Todo> = {
+const TodoStore: StoreOptions<Array<Todo>> = {
   state: state,
   mutations: mutations,
   actions: actions,
