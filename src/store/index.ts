@@ -1,15 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import TodoStore from './todo-store'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
+const store = new Vuex.Store({
   modules: {
+    TodoStore
   }
 })
+
+export default store;
