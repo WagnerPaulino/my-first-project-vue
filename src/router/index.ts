@@ -9,14 +9,11 @@ const routes: Array<RouteConfig> = [
     name: 'Home',
     component: () => import('../views/Home.vue')
   },
-  // {
-  //   path: '/github-repositories',
-  //   name: 'GithubRepositories',
-  //   // route level code-splitting
-  //   // this generates a separate chunk (GithubRepositories.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () => import(/* webpackChunkName: "GithubRepositories" */ '../views/GithubRepositories.vue')
-  // }
+  {
+    path: '/github-repositories',
+    name: 'GithubRepositories',
+    component: () => import('../views/GithubRepositories.vue')
+  }
 ]
 
 const router = new VueRouter({

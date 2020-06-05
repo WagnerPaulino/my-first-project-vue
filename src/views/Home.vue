@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div>
     <TodoList :todos="todos" />
     <form autocomplete="off">
       <input v-model="todo.name" placeholder="Name" />

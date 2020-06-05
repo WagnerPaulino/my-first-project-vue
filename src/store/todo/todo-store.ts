@@ -15,7 +15,7 @@ const mutations = {
     state.push(payload)
     return payload
   },
-  findTodos: (state: Array<Todo>, payload: Array<Todo>): void => {
+  setTodos: (state: Array<Todo>, payload: Array<Todo>): void => {
     state.splice(0, state.length)
     state.push(...payload);
   }
@@ -29,12 +29,16 @@ const actions: ActionTree<Array<Todo>, Array<Todo>> = {
   findTodos: ({ commit }) => {
     return new Promise(resolve => {
       setTimeout(() => {
-        commit("findTodos", [{ name: "almoçar", detail: "comida" },
+        commit("setTodos", [{ name: "almoçar", detail: "comida" },
         { name: "jantar", detail: "lanche" }]);
         resolve();
-      }, 2000);
+      }, 0);
     });
+  },
+  deleteTodo: ({ commit, state }, index: number) => {
+    commit('setTodos', state.filter((_element, i) => i !== index));
   }
+
 }
 
 const TodoStore: StoreOptions<Array<Todo>> = {
