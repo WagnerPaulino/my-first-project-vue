@@ -20,7 +20,7 @@ const mutations = {
 const actions: ActionTree<Array<GithubRepositorie>, Array<GithubRepositorie>> = {
     findAllRepos: async ({ commit }, user?: string) => {
         let response = null;
-        if (user) {
+        if (user !== undefined && user !== null && user?.trim() !== '') {
             response = await fetch(`https://api.github.com/users/${user}/repos?page=1`);
         } else {
             response = await fetch(`https://api.github.com/users/WagnerPaulino/repos?page=1`);
