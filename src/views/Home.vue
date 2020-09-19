@@ -1,20 +1,17 @@
 <template>
   <div>
-    <q-form
-      autocomplete="off"
-      class="column justify-center content-center"
-      @submit="save"
-      @reset="onReset"
-    >
-      <q-input
-        label="Nome"
-        v-model="todo.name"
-        lazy-rules
-        :rules="[val => val !== undefined && val !== null && val !== '' || 'Digite o nome']"
-      />
-      <q-input label="Details" type="textarea" v-model="todo.detail"></q-input>
-      <q-btn label="Submit" type="submit" color="primary" />
-    </q-form>
+    <div class="row">
+      <q-form autocomplete="off" class="col-6" @submit="save" @reset="onReset">
+        <q-input
+          label="Nome"
+          v-model="todo.name"
+          lazy-rules
+          :rules="[val => val !== undefined && val !== null && val !== '' || 'Digite o nome']"
+        />
+        <q-input label="Details" type="textarea" v-model="todo.detail"></q-input>
+        <q-btn label="Submit" type="submit" color="primary" />
+      </q-form>
+    </div>
     <TodoList :todos="todos" />
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div class="column content-center">
+  <div class="column q-pa-sm">
     <q-list bordered>
       <q-item v-for="(todo, index) in todos" :key="index">
         <q-item-section>

@@ -1,10 +1,25 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/github-repositories">Github Repositories</router-link>
-    </div>
-    <router-view />
+    <q-layout view="hHh lpR fFf">
+      <q-header elevated class="bg-primary text-white" height-hint="98">
+        <q-toolbar>
+          <q-toolbar-title>
+            <q-avatar>
+              <!-- <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg"> -->
+            </q-avatar>First App
+          </q-toolbar-title>
+        </q-toolbar>
+
+        <q-tabs align="left">
+          <q-route-tab to="/" label="Todo list" />
+          <q-route-tab to="/github-repositories" label="Github Repositories" />
+        </q-tabs>
+      </q-header>
+
+      <q-page-container>
+        <router-view />
+      </q-page-container>
+    </q-layout>
   </div>
 </template>
 

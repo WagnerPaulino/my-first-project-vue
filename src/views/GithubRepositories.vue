@@ -1,10 +1,14 @@
 <template>
-  <div class="column content-center">
-    <div class="row justify-center">
-      <q-input label="Repo Name" v-model="repoName" />
-      <q-btn label="Buscar" v-on:click="buscarRepoName()" />
+  <div class="column q-pl-sm q-pr-sm">
+    <div class="row items-center q-pt-sm q-pb-sm">
+      <div class="col-6">
+        <q-input label="Repo Name" v-model="repoName" />
+      </div>
+      <div>
+        <q-btn label="Buscar" v-on:click="buscarRepoName()" />
+      </div>
     </div>
-    <q-list bordered class="column justify-center content-center col-6">
+    <q-list bordered class="column">
       <q-item v-for="(item, index) in repos" :key="index">
         <q-item-section>
           <q-item-label>{{item.name}}</q-item-label>
