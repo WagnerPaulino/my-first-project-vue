@@ -1,12 +1,18 @@
 <template>
   <div class="todo">
-    <ol>
-      <li v-for="(todo, index) in todos" :key="index">
-        <label>{{ todo.name }}</label>
-        <span>{{ todo.detail }}</span>
-        <button type="button" v-on:click="deleteTodo(index)">Feito!</button>
-      </li>
-    </ol>
+    <q-list bordered>
+      <q-item v-ripple v-for="(todo, index) in todos" :key="index">
+        <q-item-section>
+          <q-item-label>{{ todo.name }}</q-item-label>
+        </q-item-section>
+        <q-item-section>
+          <q-item-label>{{ todo.detail }}</q-item-label>
+        </q-item-section>
+        <q-item-section avatar>
+          <button type="button" v-on:click="deleteTodo(index)">Feito!</button>
+        </q-item-section>
+      </q-item>
+    </q-list>
   </div>
 </template>
 <script lang="ts">
@@ -19,7 +25,7 @@ export default class TodoList extends Vue {
   @Prop()
   private todos?: Array<Todo>;
 
-  deleteTodo(index: number): void { 
+  deleteTodo(index: number): void {
     store.dispatch("deleteTodo", index);
   }
 }
