@@ -1,7 +1,7 @@
 <template>
-  <div class="todo">
+  <div class="column content-center">
     <q-list bordered>
-      <q-item v-ripple v-for="(todo, index) in todos" :key="index">
+      <q-item v-for="(todo, index) in todos" :key="index">
         <q-item-section>
           <q-item-label>{{ todo.name }}</q-item-label>
         </q-item-section>

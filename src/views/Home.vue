@@ -1,11 +1,11 @@
 <template>
   <div>
-    <TodoList :todos="todos" />
-    <form autocomplete="off">
+    <form autocomplete="off" class="column justify-center content-center">
       <input v-model="todo.name" placeholder="Name" />
       <textarea v-model="todo.detail" placeholder="Details"></textarea>
       <button type="button" v-on:click="save(todo)">Submit</button>
     </form>
+    <TodoList :todos="todos" />
   </div>
 </template>
 
@@ -17,8 +17,8 @@ import { Component, Vue } from "vue-property-decorator";
 
 @Component({
   components: {
-    TodoList
-  }
+    TodoList,
+  },
 })
 export default class Home extends Vue {
   private todos: Array<Todo> = store.getters.findTodos;

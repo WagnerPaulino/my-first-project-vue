@@ -1,11 +1,11 @@
 <template>
-  <div style="display: flex; flex-direction: column;">
-    <div style="display: flex; flex-direction: row;">
+  <div class="column content-center">
+    <div class="row justify-center">
       <input type="text" placeholder="Repo Name" v-model="repoName" />
       <button v-on:click="buscarRepoName()">Buscar</button>
     </div>
-    <q-list bordered>
-      <q-item v-ripple v-for="(item, index) in repos" :key="index">
+    <q-list bordered class="column justify-center content-center col-6">
+      <q-item v-for="(item, index) in repos" :key="index">
         <q-item-section>
           <q-item-label>{{item.name}}</q-item-label>
         </q-item-section>
