@@ -1,8 +1,8 @@
 <template>
   <div class="column content-center">
     <div class="row justify-center">
-      <input type="text" placeholder="Repo Name" v-model="repoName" />
-      <button v-on:click="buscarRepoName()">Buscar</button>
+      <q-input label="Repo Name" v-model="repoName" />
+      <q-btn label="Buscar" v-on:click="buscarRepoName()" />
     </div>
     <q-list bordered class="column justify-center content-center col-6">
       <q-item v-for="(item, index) in repos" :key="index">

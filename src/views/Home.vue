@@ -1,10 +1,20 @@
 <template>
   <div>
-    <form autocomplete="off" class="column justify-center content-center">
-      <input v-model="todo.name" placeholder="Name" />
-      <textarea v-model="todo.detail" placeholder="Details"></textarea>
-      <button type="button" v-on:click="save(todo)">Submit</button>
-    </form>
+    <q-form
+      autocomplete="off"
+      class="column justify-center content-center"
+      @submit="save"
+      @reset="onReset"
+    >
+      <q-input
+        label="Nome"
+        v-model="todo.name"
+        lazy-rules
+        :rules="[val => val !== undefined && val !== null && val !== '' || 'Digite o nome']"
+      />
+      <q-input label="Details" type="textarea" v-model="todo.detail"></q-input>
+      <q-btn label="Submit" type="submit" color="primary" />
+    </q-form>
     <TodoList :todos="todos" />
   </div>
 </template>
@@ -30,8 +40,12 @@ export default class Home extends Vue {
     store.dispatch("findTodos");
   }
 
-  save(todo: Todo): void {
-    store.dispatch("saveTodo", todo);
+  save(): void {
+    store.dispatch("saveTodo", this.todo);
+    this.todo = new Todo();
+  }
+
+  onReset() {
     this.todo = new Todo();
   }
 }

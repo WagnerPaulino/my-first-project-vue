@@ -9,7 +9,7 @@
           <q-item-label>{{ todo.detail }}</q-item-label>
         </q-item-section>
         <q-item-section avatar>
-          <button type="button" v-on:click="deleteTodo(index)">Feito!</button>
+          <q-btn type="button" label="Feito!" v-on:click="deleteTodo(index)" />
         </q-item-section>
       </q-item>
     </q-list>
