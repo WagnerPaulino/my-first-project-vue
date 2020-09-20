@@ -9,6 +9,7 @@
       />
       <q-input label="Details" type="textarea" v-model="todo.detail"></q-input>
       <q-btn label="Submit" type="submit" color="primary" />
+      <q-btn label="Fechar" color="primary" type="reset" />
     </q-form>
   </div>
 </template>
@@ -29,10 +30,12 @@ export default class TodoEdit extends Vue {
   save(): void {
     store.dispatch("saveTodo", this.todo);
     this.todo = {};
+    this.$emit("finish");
   }
 
-  onReset() {
+  onReset(): void {
     this.todo = new Todo();
+    this.$emit("finish");
   }
 }
 </script>
