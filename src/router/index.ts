@@ -6,13 +6,13 @@ Vue.use(VueRouter)
 const routes: Array<RouteConfig> = [
   {
     path: '/',
-    name: 'Home',
-    component: () => import('../views/Home.vue')
+    name: 'HomePage',
+    component: () => import('../views/HomePage.vue')
   },
   {
     path: '/github-repositories',
-    name: 'GithubRepositories',
-    component: () => import('../views/GithubRepositories.vue')
+    name: 'GithubRepositoriesPage',
+    component: () => import('../views/GithubRepositoriesPage.vue')
   }
 ]
 
