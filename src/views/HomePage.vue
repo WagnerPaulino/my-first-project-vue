@@ -18,7 +18,12 @@
     <div class="row justify-center">
       <div class="col-6">
         <div class="col-2">
-          <q-btn label="Novo Todo" type="button" color="primary" v-on:click="openTodoEditDialog()" />
+          <q-btn
+            label="Novo Todo"
+            type="button"
+            color="primary"
+            v-on:click="openTodoEditDialog()"
+          />
         </div>
         <TodoList :todos="todos" />
       </div>
@@ -49,11 +54,11 @@ export default class HomePage extends Vue {
     store.dispatch("findTodos");
   }
 
-  openTodoEditDialog() {
+  openTodoEditDialog(): void {
     this.edit = true;
   }
 
-  closeTodoEditDialog() {
+  closeTodoEditDialog(): void {
     this.edit = false;
   }
 }
